@@ -39,7 +39,7 @@ import Button from "../Button/Button";
 
 import styles from './Confirm.module.css';
 
-
+// component is rendered inside root App component, so it can be invoked from anywhere
 class Confirm extends PureComponent {
 
     render() {
