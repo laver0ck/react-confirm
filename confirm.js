@@ -8,11 +8,14 @@ const showConfirm = (message) => {
     store.dispatch(showConfirmModal(message));
 
     return new Promise((resolve) => {
+        // subscribing to store and watching for confirm.result field change
         const unsubscribe = store.subscribe(() => {
             const result = store.getState().confirm.result;
 
+            // if field changed and !== '' we unsubscribe and resolve it
             if (result !== '') {
                 unsubscribe();
+                // result (store.confirm.result) is returned so we can use the function as... well, as function inline
                 resolve(result);
             }
         });
@@ -23,7 +26,7 @@ const showConfirm = (message) => {
 
 export default showConfirm;
 
-
+// -----------------
 // Confirm component
 
 import React, { PureComponent, Fragment } from 'react';
@@ -98,7 +101,7 @@ export const handleConfirm = (result) => ({
     }
 });
 
-
+// -----------------
 // reducers
 
 const initState = {
@@ -131,7 +134,7 @@ const confirm = (state = initState, action) => {
 
 export default confirm;
 
-
+// -----------------
 // selectors
 
 export const getConfirm = (state) => state.confirm;
