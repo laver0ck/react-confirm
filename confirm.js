@@ -15,7 +15,7 @@ const showConfirm = (message) => {
             // if field changed and !== '' we unsubscribe and resolve it
             if (result !== '') {
                 unsubscribe();
-                // result (store.confirm.result) is returned so we can use the function as... well, as function inline
+                // result (store.confirm.result) is returned so we can use the function as... well, just function inline
                 resolve(result);
             }
         });
