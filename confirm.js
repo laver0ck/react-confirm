@@ -84,7 +84,7 @@ export default connect(
     mapDispatchToProps
 )(Confirm);
 
-
+// -----------------
 // Redux confirm actions
 
 export const showConfirmModal = (message) => ({
